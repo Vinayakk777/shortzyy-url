@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Color Variables */
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --background: 255 255% 100%; /* White */
+    --foreground: 222.2 84% 4.9%; /* Dark text */
+
+    --card: 255 255% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 255 255% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 220 80% 20%; /* Bright Red */
+    --primary-foreground: 0 0% 100%; /* White text on red */
+
+    --secondary: 0 0% 0%; /* Black */
+    --secondary-foreground: 255 255% 100%; /* White */
+
+    --muted: 210 16% 80%; /* Light Gray */
+    --muted-foreground: 210 16% 20%;
+
+    --accent: 220 80% 30%; /* Darker Red */
+    --accent-foreground: 255 255% 100%;
+
+    --destructive: 0 80% 50%; /* Red for destructive actions */
+    --destructive-foreground: 255 255% 100%;
+
+    --border: 210 16% 90%;
+    --input: 210 16% 95%;
+    --ring: 220 80% 20%;
+
+    --radius: 0.5rem;
+  }
+
+  /* Dark Mode Variables */
+  [data-theme="dark"] {
+    --background: 0 0% 10%; /* Very dark gray / almost black */
+    --foreground: 0 0% 95%; /* Almost white text */
+
+    --card: 0 0% 15%; /* Dark card background */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 80% 50%; /* Red highlights */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 15%; /* Dark gray for secondary UI */
+    --secondary-foreground: 255 255% 100%;
+
+    --muted: 220 20% 25%;
+    --muted-foreground: 210 16% 70%;
+
+    --accent: 0 80% 40%; /* Dark red accent */
+    --accent-foreground: 255 255% 100%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 255 255% 100%;
+
+    --border: 0 0% 30%;
+    --input: 0 0% 15%;
+    --ring: 0 80% 50%;
+  }
+}
+
+/* Global Styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  button {
+    @apply transition-colors duration-300;
+  }
+  input,
+  textarea {
+    @apply bg-input text-foreground border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-colors;
+  }
+  a {
+    @apply text-primary hover:text-accent transition-colors;
+  }
+}
+
+/* Optional: Smooth theme toggle */
+[data-theme="light"] {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+[data-theme="dark"] {
+  transition: background 0.3s ease, color 0.3s ease;
+}
